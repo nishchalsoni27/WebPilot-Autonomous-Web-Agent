@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebPilot — Solo Leveling Deck</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Orbitron:wght@500;700;900&family=Saira+Condensed:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #03040b;
+      color: #c8d3f5;
+      font-family: 'Saira Condensed', sans-serif;
+      overflow-x: hidden;
+    }
+    .font-title {
+      font-family: 'Orbitron', sans-serif;
+    }
+    .font-impact {
+      font-family: 'Cinzel', serif;
+    }
+    .slide-active {
+      display: flex !important;
+      animation: fadeIn 0.4s ease-in-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .glow-purple {
+      box-shadow: 0 0 50px rgba(123, 47, 190, 0.25);
+    }
+    .glow-blue {
+      box-shadow: 0 0 50px rgba(67, 97, 238, 0.2);
+    }
+    .glow-gold {
+      box-shadow: 0 0 40px rgba(247, 183, 49, 0.15);
+    }
+    .bg-grid {
+      background-size: 40px 40px;
+      background-image: linear-gradient(to right, rgba(123, 47, 190, 0.05) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(123, 47, 190, 0.05) 1px, transparent 1px);
+    }
+    .rank-s {
+      background: #f7b731;
+      color: #060814;
+      text-shadow: 0 0 8px rgba(247, 183, 49, 0.6);
+    }
+  </style>
+</head>
+<body class="bg-grid min-h-screen flex flex-col justify-between select-none">
+
+  <!-- TOP HEADER -->
+  <header class="w-full bg-[#0d1033]/60 backdrop-blur-md border-b border-[#7b2fbe]/30 px-6 py-4 flex justify-between items-center z-10">
+    <div class="flex items-center space-x-3">
+      <span class="px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider border border-[#f7b731]/40 text-[#f7b731] animate-pulse">S-Rank Artifact</span>
+      <h1 class="text-xl font-title font-bold text-white tracking-widest">WEB<span class="text-[#f7b731]">PILOT</span></h1>
+    </div>
+    <div class="text-sm font-title text-[#6b7ba4] tracking-wide hidden sm:block">
+      MICROSOFT BUILD AI HACKATHON 2026
+    </div>
+    <div class="flex items-center space-x-4 text-xs font-title">
+      <span class="text-[#72efdd]">SLIDE <span id="current-slide-num">1</span>/10</span>
+      <button onclick="toggleFullscreen()" class="px-3 py-1 bg-[#1a1e3c] border border-[#7b2fbe]/40 text-white rounded hover:bg-[#7b2fbe]/40 transition-all">Fullscreen</button>
+    </div>
+  </header>
+
+  <!-- MAIN SLIDES CONTAINER -->
+  <main class="flex-grow flex items-center justify-center p-4">
+    <div class="w-full max-w-5xl aspect-[16/9] bg-[#060814] border-2 border-[#7b2fbe]/40 rounded-xl overflow-hidden relative shadow-2xl flex flex-col justify-between">
+      
+      <!-- BACKGROUND AMBIENCE GLOWS -->
+      <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#7b2fbe]/10 blur-[80px] pointer-events-none"></div>
+      <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-[#4361ee]/10 blur-[80px] pointer-events-none"></div>
+
+      <!-- SLIDE 1: TITLE SLIDE -->
+      <div class="slide hidden flex-col justify-between p-12 h-full relative" id="slide-1">
+        <div class="flex justify-between items-start">
+          <div class="border border-[#9d4edd] bg-[#0d1033]/70 px-4 py-2 rounded flex items-center space-x-2 text-sm text-[#c8d3f5] w-full max-w-lg">
+            <span class="text-[#9d4edd] font-bold">📢 [ SYSTEM ]</span>
+            <span>A new S-Rank Quest has been registered.</span>
+          </div>
+          <div class="w-12 h-10 font-impact text-xl rank-s rounded flex items-center justify-center font-black">S</div>
+        </div>
+        
+        <div class="my-auto text-center space-y-4">
+          <h1 class="text-7xl sm:text-8xl font-impact tracking-widest leading-none text-white">WEB<span class="text-[#f7b731]">PILOT</span></h1>
+          <p class="text-xl sm:text-2xl font-title text-[#c8d3f5] tracking-[0.25em] font-medium">AUTONOMOUS WEB AGENT</p>
+          <div class="h-[2px] bg-gradient-to-r from-transparent via-[#9d4edd] to-transparent w-2/3 mx-auto"></div>
+        </div>
+
+        <div class="flex justify-between items-end text-sm text-[#6b7ba4]">
+          <span class="italic">Microsoft Build AI Hackathon 2026</span>
+          <span class="text-right">Nishchal Soni & Kuldeep Parmar</span>
+        </div>
+      </div>
+
+      <!-- SLIDE 2: QUEST REGISTRY & THEME BRIEFING -->
+      <div class="slide hidden flex-col justify-between p-12 h-full" id="slide-2">
+        <div>
+          <h2 class="text-3xl font-impact text-white tracking-widest">HACKATHON QUEST REGISTRY</h2>
+          <div class="h-[2px] bg-gradient-to-r from-[#9d4edd] to-transparent w-full mt-2"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+          <!-- Left box -->
+          <div class="bg-[#0d1033]/60 border border-[#4361ee]/40 rounded-lg p-5 flex flex-col justify-between">
+            <div>
+              <span class="text-[#72efdd] font-title text-sm tracking-widest uppercase">Build AI Live Arena</span>
+              <div class="h-32 bg-[#060814]/80 border border-[#7b2fbe]/30 rounded-md my-3 flex items-center justify-center overflow-hidden">
+                <div class="text-[#6b7ba4] text-center p-4">
+                  <p class="font-title text-xs text-[#72efdd] uppercase mb-1">Registration Status</p>
+                  <p class="text-lg font-bold text-white">10,200+ Competitors Registered</p>
+                </div>
+              </div>
+            </div>
+            <p class="text-sm text-[#c8d3f5]">Competing with top registered global builders in an intensive online system deployment phase.</p>
+          </div>
+
+          <!-- Right box -->
+          <div class="bg-[#0d1033]/60 border border-[#7b2fbe]/40 rounded-lg p-5 flex flex-col justify-between">
+            <div>
+              <span class="text-[#f7b731] font-title text-sm tracking-widest uppercase">Core Theme: Agentic Web</span>
+              <div class="h-32 bg-[#060814]/80 border border-[#7b2fbe]/30 rounded-md my-3 flex items-center justify-center overflow-hidden">
+                <div class="text-[#6b7ba4] text-center p-4">
+                  <p class="font-title text-xs text-[#f7b731] uppercase mb-1">Operational Mode</p>
+                  <p class="text-lg font-bold text-white">100% Fully Autonomous Systems</p>
+                </div>
+              </div>
+            </div>
+            <p class="text-sm text-[#c8d3f5]">Tasked with building fully autonomous systems that navigate websites, plan, recover from errors, and clear workflows.</p>
+          </div>
+        </div>
+
+        <div class="text-xs text-[#6b7ba4] flex justify-between">
+          <span>HACKATHON QUEST ENTRY</span>
+          <span>WEBPILOT SYSTEM</span>
+        </div>
+      </div>
+
+      <!-- SLIDE 3: THE PROBLEM -->
+      <div class="slide hidden flex-col justify-between p-12 h-full" id="slide-3">
+        <div>
+          <h2 class="text-3xl font-impact text-white tracking-widest">THE PROBLEM</h2>
+          <div class="h-[2px] bg-gradient-to-r from-[#ff4757] to-transparent w-full mt-2"></div>
+        </div>
+
+        <div class="grid grid-cols-11 gap-4 items-center my-auto">
+          <!-- E-Rank Column -->
+          <div class="col-span-5 bg-[#120a1c]/80 border border-[#ff4757]/30 rounded-lg p-5 flex flex-col justify-between h-[300px]">
+            <div class="flex justify-between items-center">
+              <span class="text-sm font-title font-bold text-gray-400">E-RANK AI CHATBOT</span>
+              <span class="px-2 py-0.5 bg-gray-600 text-black text-xs font-bold font-impact">E</span>
+            </div>
+            <ul class="space-y-3 text-sm text-gray-400 my-auto">
+              <li class="flex items-center"><span class="text-[#ff4757] mr-2">✗</span> Can only answer static QA prompts</li>
+              <li class="flex items-center"><span class="text-[#ff4757] mr-2">✗</span> Cannot navigate live visual web components</li>
+              <li class="flex items-center"><span class="text-[#ff4757] mr-2">✗</span> Fails completely at system form-fills</li>
+              <li class="flex items-center"><span class="text-[#ff4757] mr-2">✗</span> Requires heavy external supervision</li>
+            </ul>
+          </div>
+
+          <!-- VS Division -->
+          <div class="col-span-1 flex flex-col justify-center items-center">
+            <div class="w-10 h-10 rounded-full border border-[#f7b731] bg-[#060814] flex items-center justify-center font-impact text-xs font-bold text-[#f7b731] shadow-lg">VS</div>
+          </div>
+
+          <!-- S-Rank Column -->
+          <div class="col-span-5 bg-[#0a0826]/80 border border-[#7b2fbe]/40 rounded-lg p-5 flex flex-col justify-between h-[300px] glow-purple">
+            <div class="flex justify-between items-center">
+              <span class="text-sm font-title font-bold text-[#f7b731]">S-RANK WEBPILOT</span>
+              <span class="px-2 py-0.5 bg-[#f7b731] text-[#060814] text-xs font-bold font-impact">S</span>
+            </div>
+            <ul class="space-y-3 text-sm text-[#c8d3f5] my-auto">
+              <li class="flex items-center"><span class="text-[#72efdd] mr-2">✓</span> Navigates live production web spaces</li>
+              <li class="flex items-center"><span class="text-[#72efdd] mr-2">✓</span> Orchestrates deep multi-step missions</li>
+              <li class="flex items-center"><span class="text-[#72efdd] mr-2">✓</span> Self-recovers and adapts on element shifts</li>
+              <li class="flex items-center"><span class="text-[#72efdd] mr-2">✓</span> Zero human hand-holding needed</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="text-xs text-[#6b7ba4]">
+          LIMITATION METRIC VS OPTIMAL EXECUTION PATH
+        </div>
+      </div>
+
+      <!-- SLIDE 4: STATUS WINDOW -->
+      <div class="slide hidden flex-col justify-between p-12 h-full" id="slide-4">
+        <div class="text-center">
+          <h2 class="text-2xl font-impact text-[#9d4edd] tracking-[0.2em]">[ STATUS WINDOW ]</h2>
+        </div>
+
+        <div class="bg-[#0a0e2a] border border-[#7b2fbe]/50 rounded-lg p-6 my-auto grid grid-cols-1 md:grid-cols-2 gap-6 relative">
+          <div class="space-y-4">
+            <div>
+              <p class="text-xs text-[#6b7ba4] font-title">NAME</p>
+              <p class="text-3xl font-impact font-black text-[#f7b731] tracking-wider">WebPilot</p>
+            </div>
+            <div>
+              <p class="text-xs text-[#6b7ba4] font-title">CLASS</p>
+              <p class="text-md text-[#9d4edd] italic font-medium">Autonomous Web Agent</p>
+            </div>
+            <div>
+              <p class="text-xs text-[#6b7ba4] font-title">MISSION BRIEFING</p>
+              <p class="text-sm text-[#c8d3f5] leading-relaxed">
+                Fulfills high-level web objectives seamlessly without brittle API dependency trees or custom scrapers. Give WebPilot a text statement, and it plans browser sequences dynamically.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stats Bars -->
+          <div class="space-y-3 flex flex-col justify-center">
+            <div>
+              <div class="flex justify-between text-xs font-bold mb-1">
+                <span class="text-gray-400">PLANNING</span>
+                <span class="text-[#f7b731]">95%</span>
+              </div>
+              <div class="w-full bg-[#1a1e3c] h-2 rounded overflow-hidden">
+                <div class="bg-[#f7b731] h-full rounded" style="width: 95%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs font-bold mb-1">
+                <span class="text-gray-400">EXECUTION</span>
+                <span class="text-[#7b2fbe]">90%</span>
+              </div>
+              <div class="w-full bg-[#1a1e3c] h-2 rounded overflow-hidden">
+                <div class="bg-[#7b2fbe] h-full rounded" style="width: 90%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs font-bold mb-1">
+                <span class="text-gray-400">RESILIENCE</span>
+                <span class="text-[#4361ee]">85%</span>
+              </div>
+              <div class="w-full bg-[#1a1e3c] h-2 rounded overflow-hidden">
+                <div class="bg-[#4361ee] h-full rounded" style="width: 85%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs font-bold mb-1">
+                <span class="text-gray-400">AUTONOMY</span>
+                <span class="text-[#9d4edd]">98%</span>
+              </div>
+              <div class="w-full bg-[#1a1e3c] h-2 rounded overflow-hidden">
+                <div class="bg-[#9d4edd] h-full rounded" style="width: 98%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-xs text-[#6b7ba4] flex justify-between">
+          <span>RANK: S</span>
+          <span>WEBPILOT RUNTIME MATRIX</span>
+        </div>
+      </div>
+
+      <!-- SLIDE 5: ARCHITECTURE -->
+      <div class="slide hidden flex-col justify-between p-12 h-full" id="slide-5">
+        <div>
+          <h2 class="text-3xl font-impact text-white tracking-widest">THE SHADOW SYSTEM ARCHITECTURE</h2>
+          <div class="h-[2px] bg-gradient-to-r from-[#4361ee] to-transparent w-full mt-2"></div>
+        </div>
+
+        <div class="grid grid-cols-4 gap-4 my-auto relative">
+          <!-- Flow Line -->
+          <div class="absolute top-[40%] left-[10%] right-[10%] h-0.5 bg-[#1a1e3c] z-0"></div>
+
+          <!-- Step 1 -->
+          <div class="bg-[#0d1033]/80 border border-[#72efdd]/40 p-4 rounded-lg text-center z-10 relative">
+            <span class="absolute top-[-10px] left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-[#72efdd] text-[#060814] font-bold text-xs flex items-center justify-center font-impact">1</span>
+            <p class="font-title text-[#72efdd] text-sm mt-2 font-bold uppercase">PROMPT INPUT</p>
+            <p class="text-xs text-gray-400 mt-2">User defines custom high-level task goals in plain natural language</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="bg-[#0d1033]/80 border border-[#9d4edd]/40 p-4 rounded-lg text-center z-10 relative">
+            <span class="absolute top-[-10px] left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-[#9d4edd] text-white font-bold text-xs flex items-center justify-center font-impact">2</span>
+            <p class="font-title text-[#9d4edd] text-sm mt-2 font-bold uppercase">LLM CORE ENGINE</p>
+            <p class="text-xs text-gray-400 mt-2">Dynamically plans and formats the browser locator execution chains</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="bg-[#0d1033]/80 border border-[#4361ee]/40 p-4 rounded-lg text-center z-10 relative">
+            <span class="absolute top-[-10px] left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-[#4361ee] text-white font-bold text-xs flex items-center justify-center font-impact">3</span>
+            <p class="font-title text-[#4361ee] text-sm mt-2 font-bold uppercase">PLAYWRIGHT</p>
+            <p class="text-xs text-gray-400 mt-2">Interacts directly and natively with real DOM elements in Chromium</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="bg-[#0d1033]/80 border border-[#f7b731]/40 p-4 rounded-lg text-center z-10 relative">
+            <span class="absolute top-[-10px] left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-[#f7b731] text-[#060814] font-bold text-xs flex items-center justify-center font-impact">4</span>
+            <p class="font-title text-[#f7b731] text-sm mt-2 font-bold uppercase">EXTRACTION</p>
+            <p class="text-xs text-gray-400 mt-2">Extracts, filters, and formats clean structured payloads for output</p>
+          </div>
+        </div>
+
+        <div class="text-xs text-[#6b7ba4]">
+          ENGINE ORCHESTRATION LAYER: MULTI-AGENT STATE FLOW
+        </div>
+      </div>
+
+      <!-- SLIDE 6: DEPLOYMENT & DEPLOYMENT CODES -->
+      <div class="slide hidden flex-col justify-between p-12 h-full" id="slide-6">
+        <div>
+          <h2 class="text-3xl font-impact text-white tracking-widest">[ DEPLOYMENT CODES ]</h2>
+          <div class="h-[2px] bg-gradient-to-r from-[#9d4edd] to-transparent w-full mt-2"></div>
+        </div>
+
+        <div class="space-y-6 my-auto">
+          <!-- Install codebox -->
+          <div class="bg-[#060c20] border border-[#2a2f5a] rounded-lg p-4 font-mono text-sm relative">
+            <span class="absolute top-2 right-4 text-[10px] font-title tracking-widest text-[#72efdd]">TERMINAL</span>
+            <p class="text-[#72efdd]">pip install playwright python-dotenv browser-use</p>
+            <p class="text-[#72efdd]">playwright install chromium</p>
+          </div>
+
+          <!-- Repository Box -->
+          <div class="bg-[#0d1033] border border-[#f7b731]/50 rounded-lg p-5">
+            <p class="font-title text-xs text-[#f7b731] tracking-widest mb-1 uppercase font-bold">Project Access Radar</p>
+            <a href="https://github.com/nishchalsoni27/WebPilot-Autonomous-Web-Agent" target="_blank" class="text-lg font-mono text-white underline hover:text-[#72efdd] transition-all">
+              https://github.com/nishchalsoni27/WebPilot-Autonomous-Web-Agent
+            </a>
+          </div>
+        </div>
+
+        <div class="text-xs text-[#6b7ba4]">
+          CODE DEPENDECIES & REMOTE SOURCE CONTROL
+        </div>
+      </div>
+
+      <!-- SLIDE 7: DUNGEONS CLEARED (DEMO MATRIX) -->
+      <div class="slide hidden flex-col justify-between p-12 h-full" id="slide-7">
+        <div>
+          <h2 class="text-3xl font-impact text-white tracking-widest">DUNGEONS CLEARED</h2>
+          <div class="h-[2px] bg-gradient-to-r from-[#7b2fbe] to-transparent w-full mt-2"></div>
+        </div>
+
+        <div class="space-y-3 my-auto">
+          <!-- B Rank -->
+          <div class="bg-[#0a0e2a] border border-[#4361ee] rounded p-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+              <span class="px-2 py-0.5 bg-[#4361ee] text-white font-impact text-xs font-bold rounded">B</span>
+              <div>
+                <p class="text-sm font-bold text-white leading-none">Web Search & Summarize</p>
+                <p class="text-xs text-gray-400 mt-1">Query execution via search nodes → Data scraping</p>
+              </div>
+            </div>
+            <span class="text-xs px-2 py-0.5 border border-[#22c55e]/50 bg-[#0f3320] text-[#22c55e] font-impact font-bold">CLEARED</span>
+          </div>
+
+          <!-- A Rank -->
+          <div class="bg-[#0a0e2a] border border-[#7b2fbe] rounded p-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+              <span class="px-2 py-0.5 bg-[#7b2fbe] text-white font-impact text-xs font-bold rounded">A</span>
+              <div>
+                <p class="text-sm font-bold text-[#c8d3f5] leading-none">E-Commerce Research Portal</p>
+                <p class="text-xs text-gray-400 mt-1">Automated filtration matrices across retail inventories</p>
+              </div>
+            </div>
+            <span class="text-xs px-2 py-0.5 border border-[#22c55e]/50 bg-[#0f3320] text-[#22c55e] font-impact font-bold">CLEARED</span>
+          </div>
+
+          <!-- S Rank -->
+          <div class="bg-[#0a0e2a] border border-[#f7b731] rounded p-3 flex justify-between items-center glow-gold">
+            <div class="flex items-center space-x-3">
+              <span class="px-2 py-0.5 bg-[#f7b731] text-[#060814] font-impact text-xs font-bold rounded">S</span>
+              <div>
+                <p class="text-sm font-bold text-[#f7b731] leading-none">Dynamic Multi-Step Flight Discovery</p>
+                <p class="text-xs text-gray-400 mt-1">Form manipulation, dynamic date picker overrides, final pathing</p>
+              </div>
+            </div>
+            <span class="text-xs px-2 py-0.5 border border-[#22c55e]/50 bg-[#0f3320] text-[#22c55e] font-impact font-bold">CLEARED</span>
+          </div>
+        </div>
+
+        <div class="text-xs text-[#6b7ba4]">
+          SYSTEM VERIFICATION SUITE & SCENARIO TESTING
+        </div>
+      </div>
+
+      <!-- SLIDE 8: EVALUATION CRITERIA -->
+      <div class="slide hidden flex-col justify-between p-12 h-full" id="slide-8">
+        <div>
+          <h2 class="text-3xl font-impact text-[#f7b731] tracking-widest">BOSS BATTLE: EVALUATION CRITERIA</h2>
+          <div class="h-[2px] bg-gradient-to-r from-[#f7b731] to-transparent w-full mt-2"></div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-auto">
+          <div class="bg-[#0d1033] border-l-4 border-[#9d4edd] p-4 rounded-r-lg">
+            <p class="text-sm font-bold text-[#9d4edd] uppercase font-title mb-1">Autonomous Task Planning</p>
+            <p class="text-xs text-gray-400">Uses complete reasoning loops to decompose queries into tool execution matrices dynamically</p>
+          </div>
+          <div class="bg-[#0d1033] border-l-4 border-[#4361ee] p-4 rounded-r-lg">
+            <p class="text-sm font-bold text-[#4361ee] uppercase font-title mb-1">Resilient Exception Handling</p>
+            <p class="text-xs text-gray-400">Features fallback selector logic so layout updates don't break autonomous missions mid-run</p>
+          </div>
+          <div class="bg-[#0d1033] border-l-4 border-[#f7b731] p-4 rounded-r-lg col-span-1 sm:col-span-2">
+            <p class="text-sm font-bold text-[#f7b731] uppercase font-title mb-1">End-to-End Task Resolution</p>
+            <p class="text-xs text-gray-400">Resolves cross-domain checkout sequences, complex form fills, and deep search-to-summary structures out of the box</p>
+          </div>
+        </div>
+
+        <div class="text-xs text-[#6b7ba4]">
+          MICROSOFT BUILD AI RUNTIME REQUIREMENTS
+        </div>
+      </div>
+
+      <!-- SLIDE 9: TEAM MEMBERS -->
+      <div class="slide hidden flex-col justify-between p-12 h-full" id="slide-9">
+        <div>
+          <h2 class="text-3xl font-impact text-[#9d4edd] tracking-widest">[ PARTY MEMBERS ]</h2>
+          <div class="h-[2px] bg-gradient-to-r from-[#9d4edd] to-transparent w-full mt-2"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+          <!-- Member 1 -->
+          <div class="bg-[#0d1033] border border-[#f7b731] rounded-lg p-5 flex flex-col justify-between">
+            <div class="flex justify-between items-start">
+              <div>
+                <p class="text-xl font-impact font-bold text-[#f7b731]">Nishchal Soni</p>
+                <p class="text-xs text-[#9d4edd] italic font-title mt-1">Agent Architecture & Logic Frameworks</p>
+              </div>
+              <span class="px-2 py-0.5 bg-[#f7b731] text-black text-xs font-bold font-impact">S</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-4 leading-relaxed">Designed LLM action loops, fallback parsing sequences, and structural project execution plans.</p>
+          </div>
+
+          <!-- Member 2 -->
+          <div class="bg-[#0d1033] border border-[#9d4edd] rounded-lg p-5 flex flex-col justify-between">
+            <div class="flex justify-between items-start">
+              <div>
+                <p class="text-xl font-impact font-bold text-[#9d4edd]">Kuldeep Parmar</p>
+                <p class="text-xs text-[#72efdd] italic font-title mt-1">Automation Engine & Resilience Formations</p>
+              </div>
+              <span class="px-2 py-0.5 bg-[#9d4edd] text-white text-xs font-bold font-impact">S</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-4 leading-relaxed">Constructed core Playwright selector logic paths, multi-locator backups, and automated scenarios suite.</p>
+          </div>
+        </div>
+
+        <div class="text-xs text-[#6b7ba4]">
+          HACKATHON DEPLOYMENT TEAM
+        </div>
+      </div>
+
+      <!-- SLIDE 10: CLOSING (ARISE) -->
+      <div class="slide hidden flex-col justify-between p-12 h-full relative" id="slide-10">
+        <!-- Intense Glow -->
+        <div class="absolute top-[20%] left-1/2 -translate-x-1/2 w-80 h-40 bg-[#7b2fbe]/30 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div></div> <!-- empty placeholder to push title down -->
+
+        <div class="text-center space-y-4 my-auto relative z-10">
+          <h1 class="text-8xl font-impact tracking-[0.15em] text-white animate-pulse">ARISE.</h1>
+          <p class="text-lg text-gray-400 max-w-xl mx-auto italic">"The web was built for human interactions. WebPilot automates it."</p>
+          <div class="h-[2px] bg-gradient-to-r from-transparent via-[#9d4edd] to-transparent w-1/3 mx-auto mt-4"></div>
+        </div>
+
+        <div class="text-xs text-[#6b7ba4] flex justify-between items-end">
+          <span>Microsoft Build AI Hackathon 2026</span>
+          <span class="text-[#f7b731]">S-RANK CLEAR COMPLETE</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- CONTROL FOOTER -->
+  <footer class="w-full bg-[#0d1033]/60 backdrop-blur-md border-t border-[#7b2fbe]/30 px-6 py-4 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 z-10">
+    <div class="flex space-x-2">
+      <button onclick="prevSlide()" class="px-4 py-2 bg-[#1a1e3c] border border-[#7b2fbe]/40 text-white rounded hover:bg-[#7b2fbe]/40 disabled:opacity-40 transition-all font-title" id="prev-btn">◀ PREV</button>
+      <button onclick="nextSlide()" class="px-4 py-2 bg-[#1a1e3c] border border-[#7b2fbe]/40 text-white rounded hover:bg-[#7b2fbe]/40 disabled:opacity-40 transition-all font-title" id="next-btn">NEXT ▶</button>
+    </div>
+    
+    <div class="text-xs font-title text-[#6b7ba4] tracking-wider text-center sm:text-right">
+      Use <kbd class="px-1.5 py-0.5 bg-[#1a1e3c] rounded border border-[#7b2fbe]/30 text-white font-mono">◀</kbd> and <kbd class="px-1.5 py-0.5 bg-[#1a1e3c] rounded border border-[#7b2fbe]/30 text-white font-mono">▶</kbd> arrows on your keyboard to navigate slides
+    </div>
+  </footer>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 10;
+
+    function updateSlides() {
+      // Hide all slides
+      document.querySelectorAll('.slide').forEach(s => s.classList.remove('slide-active'));
+      
+      // Show active slide
+      const activeSlide = document.getElementById(`slide-${currentSlide}`);
+      if (activeSlide) {
+        activeSlide.classList.add('slide-active');
+      }
+
+      // Update counters & buttons
+      document.getElementById('current-slide-num').innerText = currentSlide;
+      document.getElementById('prev-btn').disabled = currentSlide === 1;
+      document.getElementById('next-btn').disabled = currentSlide === totalSlides;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateSlides();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateSlides();
+      }
+    }
+
+    // Keyboard bindings
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'Space') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+
+    // Fullscreen support
+    function toggleFullscreen() {
+      const elem = document.documentElement;
+      if (!document.fullscreenElement) {
+        elem.requestFullscreen().catch(err => {
+          console.error(`Error attempting to enable fullscreen: ${err.message}`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    // Init
+    updateSlides();
+  </script>
+</body>
+</html>
