@@ -1,11 +1,4 @@
-# WebPilot — Autonomous Web Agent
-# Microsoft Build AI Hackathon 2026
-
-# Browser Automation
 playwright>=1.44.0
-
-# Rich CLI
 rich>=13.7.0
-
-# Env management
 python-dotenv>=1.0.0
+streamlit>=1.35.0
