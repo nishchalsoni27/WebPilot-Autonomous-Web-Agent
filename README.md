@@ -1,5 +1,3 @@
-```python
- """
 # 🚀 WebPilot: Autonomous Local-First Web Agent
 ### Microsoft Build AI Hackathon 2026 | Team Project
 
@@ -22,8 +20,6 @@ By mirroring the programmatic tool-use loop configurations of cutting-edge front
 
 
 ```
-
-```text
 
 ```text
 webpilot/
