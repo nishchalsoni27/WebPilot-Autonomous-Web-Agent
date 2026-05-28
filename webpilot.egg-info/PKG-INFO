@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: webpilot
+Version: 1.0.0
+Summary: Autonomous Web Agent — Microsoft Build AI Hackathon 2026
+Author: Nishchal Soni & Kuldeep Parmar
+Requires-Python: >=3.11
+Requires-Dist: playwright>=1.44.0
+Requires-Dist: rich>=13.7.0
+Requires-Dist: python-dotenv>=1.0.0
+Dynamic: author
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary

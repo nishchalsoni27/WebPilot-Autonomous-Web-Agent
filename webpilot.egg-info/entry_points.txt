@@ -1,0 +1,3 @@
+[console_scripts]
+webpilot = webpilot.main:main
+webpilot-demo = webpilot.demo:main
