@@ -1,261 +1,85 @@
-# 🤖 WebPilot — Autonomous Web Agent
+import os
 
-> **Microsoft Build AI Hackathon 2026** — Theme: *Agentic Web*
->
-> **Team:** Nishchal Soni & Kuldeep Parmar
+# Create the directory structure for webpilot if it doesn't exist to make it a neat clean package layout representation
+os.makedirs("webpilot", exist_ok=True)
 
----
+readme_content = """# WebPilot — Autonomous Web Agent
 
-## 🎯 What is WebPilot?
+An elegant, local deterministic web automation agent designed for the **Microsoft Build AI Hackathon 2026**. 
 
-AI chatbots *answer* questions. **WebPilot *does* things.**
-
-Give it a natural-language goal like:
-
-> *"Find the cheapest flight from Delhi to Mumbai next Friday and hold a ticket"*
-
-WebPilot autonomously:
-1. Opens a travel aggregator
-2. Fills in origin, destination, and date
-3. Filters and sorts results by price
-4. Navigates to checkout
-5. Returns the fare and booking details — no scripts, no APIs, no human in the loop
+WebPilot drives browser actions end-to-end via a localized rule-based parser combined with a robust **Playwright** framework. This project architecture simulates the exact tool-use loop patterns of large language models (LLM) completely locally, executing complex multi-step workflows across live sites with **zero API costs**, **no keys required**, and **unlimited offline performance evaluation**.
 
 ---
 
-## 🏗 Architecture
+## 🚀 Key Features
 
-```
-┌──────────────────────────────────────────────────────┐
-│                    WebPilot Agent                      │
-│                                                        │
-│   Natural Language Task                                │
-│          │                                             │
-│          ▼                                             │
-│   ┌─────────────────┐      Tool calls                 │
-│   │  Claude (LLM)   │ ──────────────────────┐         │
-│   │  Planner +      │                       │         │
-│   │  Reasoner       │ ◄──── Tool results ───┘         │
-│   └─────────────────┘                       │         │
-│          │                                  │         │
-│          ▼                                  │         │
-│   ┌─────────────────────────────────────┐   │         │
-│   │        Browser Controller           │◄──┘         │
-│   │  (Playwright — Chromium/Firefox)    │             │
-│   │  navigate · click · type · scroll   │             │
-│   │  screenshot · extract · go_back     │             │
-│   └─────────────────────────────────────┘             │
-└──────────────────────────────────────────────────────┘
-```
-
-### How the loop works
-
-```
-1. User gives high-level task
-2. Claude reasons about a plan
-3. Claude calls a browser tool (navigate, click, type_text, …)
-4. Browser executes the action on the real live web
-5. Result returned to Claude
-6. Claude observes → adjusts → calls next tool
-7. Repeat until task_complete() or task_failed()
-```
+* **Zero-API Autonomous Loop:** Emulates an intelligent task orchestrator that parses user objectives into structured operational tool calls entirely on your machine.
+* **Resilient Browser Controller:** Built on Playwright with built-in multi-strategy selectors (exact text matching, positional fallback tracking, human-like delays, and automatic viewport hidden flag bypasses).
+* **Rich Console Layout:** High-fidelity interactive CLI terminal dashboards with structured logging panels, automated runtime stats, and task-success tracing wrappers.
+* **Pre-Engineered Benchmarks:** Ready-to-run showcase configurations optimized to complete real-world web navigation tasks automatically.
 
 ---
 
-## 🌟 Core Capabilities
+## 📂 Repository Blueprint
+```text
+webpilot-agent/
+├── .env                  # Environment management file layout stub
+├── requirements.txt      # Core python runtime dependency manifests
+├── setup.py              # Packaging configurations for direct executable script distribution
+├── main.py               # Main terminal launcher for the interactive multi-task sandbox
+├── demo.py               # Benchmark automated test harness tracking standard test matrices
+└── webpilot/             # Internal agent implementation pack modules
+    ├── __init__.py       # Package hook configurations exporting top-level controllers
+    ├── agent.py          # The core rule-based state orchestrator driving simulated tool-use loops
+    ├── browser.py        # Playwright automation layer tracking element actions
+    ├── config.py         # Global runtime and viewport telemetry configurations
+    └── tools.py          # Standard JSON-schema declarations for functional action boundaries
 
-| Capability | How it works |
-|---|---|
-| **Multi-step planning** | Claude decomposes goals into ordered sub-tasks before acting |
-| **Resilient execution** | 5-strategy click fallback (CSS → exact text → partial → role button → role link) |
-| **Adaptive re-planning** | On failure, Claude revises its approach mid-execution |
-| **Structured extraction** | Claude reads page DOM and returns typed results |
-| **Form interaction** | Fills search boxes, selects dropdowns, presses Enter — full UX flows |
-| **Multi-site workflows** | Can hop across domains within a single task |
+🔧 Installation & Verification
+1. Clone & Install Dependencies
+Ensure you have Python >= 3.11 ready. Install the project package locally in editable development mode along with terminal rendering libraries:
 
----
+Bash
+pip install -e .
+2. Provision Local Browsers
+Initialize the secure isolated underlying Webkit/Chromium binary drivers used by the browser tracking layers:
 
-## 📦 Project Structure
-
-```
-webpilot/
-├── __init__.py       — Package entry point
-├── agent.py          — Core agentic loop (Claude ↔ browser)
-├── browser.py        — Playwright browser controller (resilient actions)
-├── tools.py          — Claude tool-use schemas (11 browser tools)
-├── config.py         — All tuneable settings
-├── main.py           — Interactive CLI
-├── demo.py           — 5 showcase demo scenarios
-├── requirements.txt  — Python dependencies
-├── .env.example      — Environment template
-└── README.md         — This file
-```
-
----
-
-## 🚀 Quick Start
-
-### 1 — Prerequisites
-
-```bash
-# Python 3.11+
-python --version
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Install Playwright browser
+Bash
 playwright install chromium
-```
+🎯 How to Use
+🎮 The Interactive Sandbox CLI
+Run the main terminal application to enter a conversational loop where you can specify custom parameters or execute standard shortcut tasks immediately:
 
-### 2 — Set your API key
-
-```bash
-# Option A — environment variable
-export ANTHROPIC_API_KEY="sk-ant-..."
-
-# Option B — .env file
-cp .env.example .env
-# then edit .env and fill in your key
-```
-
-### 3 — Run the interactive CLI
-
-```bash
+Bash
 python main.py
-```
+Visual Mode Prompt: The utility asks whether it should launch a visible browser instance (Show browser window? [Y/n]). Pass Y to track element clicks and inputs visually in real-time.
 
-You'll see a numbered menu of sample tasks or can type any free-form goal.
+📊 Benchmark Automated Evaluation Suite
+To launch continuous non-blocking tracking scripts verifying standard evaluation scenarios for hackathon grading metrics:
 
-### 4 — Run the demo suite
-
-```bash
-# Interactive demo menu
-python demo.py
-
-# Run a specific demo (e.g. demo 2)
-python demo.py --task 2
-
-# Run all 5 demos headless and save JSON results
+Bash
+# Execute all 5 pre-configured automated benchmark scenarios sequentially (Headless Mode)
 python demo.py --all
-```
 
----
+# Launch a highly specific scenario target task index (e.g., Scenario 2: News Aggregator) in Headed Mode
+python demo.py --task 2
+🏆 Hackathon Evaluator Reference Matrix
+The internal routing engine is configured to execute five comprehensive production automation cases end-to-end:
 
-## 🔧 Available Browser Tools
+🔍 Web Search & Summarise: Connects to Google, fires a dynamic search string, reads search headers, follows references, and isolates core bulleted summaries.
 
-The agent can invoke any of these 11 tools in any order:
+📰 News Aggregation: Crawls news.ycombinator.com, loops through primary interactive title containers, and maps individual story lines to vote scores.
 
-| Tool | What it does |
-|---|---|
-| `navigate(url)` | Open any URL |
-| `get_page_content()` | Read title, text, interactive elements |
-| `click_element(description)` | Click button/link by text or CSS selector |
-| `type_text(selector, text)` | Fill input fields |
-| `press_key(key)` | Enter, Tab, Escape, ArrowDown … |
-| `scroll(direction, amount)` | Reveal off-screen content |
-| `go_back()` | Browser back button |
-| `select_option(selector, value)` | Dropdown selection |
-| `wait(ms)` | Pause for page load |
-| `screenshot()` | Visual snapshot for debugging |
-| `task_complete(summary, result)` | Signal success + return data |
-| `task_failed(reason)` | Signal irrecoverable failure |
+🛒 E-commerce Research: Surfaces target product pages, inputs sorting criteria, and isolates optimal ratings alongside specific price limits.
 
----
+📚 Knowledge Retrieval: Queries Wikipedia records to securely construct multi-fact index parameter points for deep data lookups.
 
-## 📋 Demo Scenarios
+✈️ Travel Price Research: Bridges typical form components, configures standard geographic parameters, and flags low-cost options.
 
-| # | Demo | Highlights |
-|---|---|---|
-| 1 | 🔍 Web Search & Summarise | Google navigation, link following, content extraction |
-| 2 | 📰 News Aggregation | Direct navigation, structured data extraction |
-| 3 | 🛒 E-commerce Research | Flipkart search, price + rating extraction |
-| 4 | 📚 Knowledge Retrieval | Wikipedia multi-fact extraction |
-| 5 | ✈️ Travel Price Research | MakeMyTrip multi-step form, fare comparison |
+👥 Authors & Team
+Nishchal Soni
 
----
+Kuldeep Parmar
 
-## 💡 Usage in Code
-
-```python
-import asyncio
-from webpilot import WebPilotAgent
-
-async def main():
-    async with WebPilotAgent(api_key="sk-ant-...", headless=False) as agent:
-        result = await agent.run_task(
-            "Go to Amazon.in, search for 'mechanical keyboard', "
-            "and find the best-rated one under ₹3000"
-        )
-        if result["success"]:
-            print("✅", result["result"])
-        else:
-            print("❌", result["reason"])
-
-asyncio.run(main())
-```
-
-### Result object
-
-```python
-{
-    "success": True,
-    "task": "...",          # original task string
-    "summary": "...",       # what the agent did
-    "result": "...",        # the final answer/data
-    "steps": 12,            # LLM calls made
-    "actions": 18,          # browser actions taken
-    "elapsed_s": 43.2       # wall-clock time
-}
-```
-
----
-
-## ⚙️ Configuration
-
-```python
-from webpilot import WebPilotAgent
-
-agent = WebPilotAgent(
-    api_key    = "sk-ant-...",
-    headless   = True,       # False = visible Chrome window
-    max_steps  = 30,         # max LLM reasoning rounds
-    model      = "claude-opus-4-5",
-)
-```
-
----
-
-## 🛡 Safety
-
-- Never submits real payment information
-- For e-commerce tasks: navigates to checkout but does **not** place orders
-- Respects site robots.txt through normal browser behaviour
-- Max-steps guard prevents infinite loops
-
----
-
-## 🏆 Why This Wins
-
-| Judging Criterion | WebPilot's Approach |
-|---|---|
-| **Smart enough to plan** | Claude decomposes any goal into sub-tasks before acting |
-| **Resilient enough to recover** | 5-strategy click fallback + mid-task re-planning |
-| **End-to-end execution** | Handles full workflows across multiple sites without hand-holding |
-| **Real, working solution** | Live Playwright browser — no mocks, no canned responses |
-| **Users never go back** | Any web task reduces to a one-line natural language instruction |
-
----
-
-## 👥 Team
-
-| Name | Role |
-|---|---|
-| **Nishchal Soni** | Agent Architecture, LLM Integration |
-| **Kuldeep Parmar** | Browser Automation, Resilience Layer |
-
----
-
-## 📄 License
-
-MIT License — see [LICENSE](LICENSE) file.
+Developed for the Microsoft Build AI Hackathon 2026. Built with speed, safety, and deterministic precision.
+"""
